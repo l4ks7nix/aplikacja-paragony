@@ -131,3 +131,28 @@ body {
  opacity: 0.5;
  font-weight: bold;
 }
+
+/* Info box */
+.info-box {
+  background-color: #E3F2FD;
+  border-left: 4px solid #4169E1;
+  padding: 16px;
+  margin: 16px 0;
+  border-radius: 6px;
+  font-size: 14px;
+}
+
+/* Reusable primary button */
+.btn-primary {
+  background-color: #4169E1;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-weight: 500;
+}
+
+.btn-primary:hover {
+  background-color: #3558c8;
+}
