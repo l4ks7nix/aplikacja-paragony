@@ -1,12 +1,4 @@
-.lista {
-display: Flex;
-justify-content: flex-end;
-list-style: none;
 
-padding: 0;
-margin: 0;
-gap: 2px;
-}
 
 .box {
   display: flex;
@@ -17,8 +9,8 @@ gap: 2px;
 }
  
 .icon {
-  width: 70px;
-  height: 70px;
+  width: 50px;
+  height: 50px;
   display:block;
 
 }
@@ -41,7 +33,7 @@ a {
   background: #fff;
 }
 
-.ikona-pobrania {
+.down-icon {
   width: 50px;
   height: 50px;
   margin: 0 auto 16px;
@@ -76,6 +68,13 @@ a {
 .upload-btn:hover {
   background: #1e40af;
 }
+.page-center {
+  min-height: 100vh;          /* cała wysokość ekranu */
+  display: flex;
+  align-items: center;        /* pion */
+  justify-content: center;    /* poziom */
+}
+
 /* ---------------------------------------------Upload----------------------------------------------- */
 * {
   margin: 0;
@@ -92,7 +91,7 @@ body {
 /*  Navigation  */
 .navbar {
   background: #fff;
-  padding: 16px 32px;
+  padding: 10px 20px;
   display: flex;
   justify-content: space-between; /* logo left, links right */
   align-items: center;
@@ -101,7 +100,7 @@ body {
 
 /*  Brand */
 .brand {
-  font-size: 24px;
+  font-size: 16px;
   font-weight: bold;
   color: #4169E1;
 }
@@ -125,4 +124,10 @@ body {
 /* Hover effect */
 .nav-links a:hover {
   color: #4169E1;
+}
+
+.small-text {
+ font-size: 8px;
+ opacity: 0.5;
+ font-weight: bold;
 }
