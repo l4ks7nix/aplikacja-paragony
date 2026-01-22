@@ -19,8 +19,8 @@
     </div>
 
     <ul class="nav-links">
-      <li><a href="#">Scanner</a></li>
-      <li><a href="#">History</a></li>
+      <li><a href="index.html">Scanner</a></li>
+      <li><a href="history.html">History</a></li>
       <li><a href="#">Analytics</a></li>
       <li><a href="#">Settings</a></li>
       <li><a href="#">Logout</a></li>
@@ -28,37 +28,31 @@
   </nav>
 
   <!-- SETTINGS -->
-  <main style="max-width: 600px; margin: 40px auto; padding: 0 20px;">
-    <h1>Settings</h1>
-    <p class="subtitle">Manage your application configuration</p>
+<main class="settings-container">
+  <h1>Settings</h1>
+  <p class="subtitle">Manage your application configuration</p>
 
-    <section style="margin-top: 32px;">
-      <h2>API Configuration</h2>
+  <section class="settings-card">
+    <h2>API Configuration</h2>
 
-      <!-- INFO BOX -->
-      <div class="info-box">
-        The API key is required to connect the application with external services.
-        Your key is stored locally and never shared.
+    <div class="info-box">
+      The API key is required to connect the application with external services.
+      Your key is stored locally and never shared.
+    </div>
+
+    <form>
+      <div class="form-group">
+        <label for="apiKey">API Key</label>
+        <input type="password" id="apiKey" name="apiKey">
       </div>
 
-      <!-- FORM -->
-      <form>
-        <div style="margin-bottom: 16px;">
-          <label for="apiKey">API Key</label><br>
-          <input
-            type="password"
-            id="apiKey"
-            name="apiKey"
-            style="width: 100%; padding: 10px; margin-top: 6px;"
-          >
-        </div>
+      <button type="submit" class="btn-primary">
+        Save API Key
+      </button>
+    </form>
+  </section>
+</main>
 
-        <button type="submit" class="btn-primary">
-          Save API Key
-        </button>
-      </form>
-    </section>
-  </main>
 
 </body>
 </html>
