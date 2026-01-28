@@ -42,10 +42,16 @@
 
     <form>
       <div class="form-group">
-        <label for="apiKey">API Key</label>
-        <input type="password" id="apiKey" name="apiKey">
-      </div>
+  <label for="apiKey">API Key</label>
+  <div style="position: relative; display: flex; align-items: center;">
+    <input type="password" id="apiKey" name="apiKey" style="flex: 1; padding-right: 40px;">
+    <button type="button" id="togglePassword" style="position: absolute; right: 10px; background: none; border: none; cursor: pointer; font-size: 18px;">
+      👁️
+    </button>
+  </div>
+</div>
 
+      
       <button type="submit" class="btn-primary">
         Save API Key
       </button>
@@ -53,6 +59,6 @@
   </section>
 </main>
 
-
+<script src="js/skrypt.js"></script>
 </body>
 </html>
