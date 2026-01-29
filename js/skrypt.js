@@ -26,3 +26,52 @@ document.addEventListener('DOMContentLoaded', () => {
         console.warn("Nie znaleziono elementówapiKey w pliku HTML.");
     }
 });
+document.addEventListener('DOMContentLoaded', () => {
+    // Pobieramy elementy na podstawie Twojego HTML
+    const apiKeyInput = document.getElementById('apiKey');
+    const saveButton = document.querySelector('.btn-primary');
+    const togglePasswordBtn = document.getElementById('togglePassword');
+
+    // 1. Obsługa zapisu klucza
+    saveButton.addEventListener('click', (event) => {
+        // Zatrzymujemy domyślne przeładowanie formularza
+        event.preventDefault();
+
+        const keyValue = apiKeyInput.value.trim();
+
+        if (keyValue === "") {
+            alert("Please enter an API key");
+        } else {
+            // Zapis do LocalStorage pod wymaganą nazwą
+            localStorage.setItem('fl_api_key', keyValue);
+        }
+    });
+
+});
+document.addEventListener('DOMContentLoaded', () => {
+    const apiKeyInput = document.getElementById('apiKey');
+    const saveButton = document.querySelector('.btn-primary');
+
+    // - 1. WCZYTYWANIE KLUCZA PRZY OTWARCIU STRONY -
+    // Pobierz wartość z LocalStorage
+    const savedKey = localStorage.getItem('fl_api_key');
+
+    // Jeśli klucz istnieje (nie jest null), wpisz go do inputa
+    if (savedKey) {
+        apiKeyInput.value = savedKey;
+    }
+
+    // - 2. ZAPISYWANIE KLUCZA -
+    saveButton.addEventListener('click', (event) => {
+        event.preventDefault(); // Zatrzymuje odświeżanie strony
+
+        const keyValue = apiKeyInput.value.trim();
+
+        if (keyValue === "") {
+            alert("Please enter an API key");
+        } else {
+            localStorage.setItem('fl_api_key', keyValue);
+            alert("API Key saved!");
+        }
+    });
+});
