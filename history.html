@@ -1,87 +1,65 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Receipt History</title>
-  <link rel="stylesheet" href="css/styles.css">
+  <link rel="stylesheet" href="css/styles.css" />
 </head>
 <body>
+<script src="js/skrypt.js" defer></script>
 <nav class="navbar">
+  <a href="index.html">
     <div class="box">
       <img class="icon" src="assets/obrazek.png" alt="ikona">
-
       <div class="text-container">
         <div class="brand">Financial Lens</div>
         <div class="small-text">Smart Spending. Clear vision.</div>
       </div>
     </div>
+  </a>
 
-    <ul class="nav-links">
-      <li><a href="index.html">Scanner</a></li>
-      <li><a href="#">History</a></li>
-      <li><a href="#">Analytics</a></li>
-      <li><a href="settings.html">Settings</a></li>
-      <li><a href="#">Logout</a></li>
-    </ul>
-  </nav>
-    <main class="container">
-        <header class="page-header">
-            <h1>Receipt History</h1>
-            <p class="subtitle">View and manage all your scanned receipts</p>
-        </header>
+  <ul class="nav-links">
+    <li><a href="receipt-input.html">Scanner</a></li>
+    <li><a href="#">History</a></li>
+    <li><a href="Analytics.html">Analytics</a></li>
+    <li><a href="settings.html">Settings</a></li>
+    <li><a href="#">Logout</a></li>
+  </ul>
+</nav>
 
-        <section class="search-stats-card">
-            <div class="search-row">
-                <div class="search-input-wrapper">
-                    <input type="text" placeholder="Search by store or category...">
-                </div>
-                <div class="filter-controls">
-                    <button class="filter-icon-btn">🔍</button>
-                    <select class="category-select">
-                        <option>All Categories</option>
-                    </select>
-                </div>
-            </div>
+<main class="container">
 
-            <div class="stats-row">
-                <div class="stat-group">
-                    <p class="stat-label">Total Spent</p>
-                    <p class="stat-value-small">PLN 560.07</p>
-                </div>
-                <div class="stat-group">
-                    <p class="stat-label">Average Receipt</p>
-                    <p class="stat-value-small">PLN 70.01</p>
-                </div>
-            </div>
-        </section>
+  <header class="page-header">
+    <h1>Receipt History</h1>
+    <p class="subtitle">View and manage all your scanned receipts</p>
+  </header>
 
-        <div class="receipts-list">
-            <div class="receipt-card">
-                <div class="receipt-info">
-                    <h3>Whole Foods Market</h3>
-                    <div class="receipt-meta">
-                        <span>📅 2025-12-25</span>
-                        <span>🛒 8 items</span>
-                        <span>PLN 87.45</span>
-                    </div>
-                </div>
-                <button class="delete-btn">🗑️</button>
-            </div>
+  <section class="search-stats-card">
+    <div class="search-row">
+      <input type="text" placeholder="Search by store or category...">
+      <select>
+        <option>All Categories</option>
+      </select>
+    </div>
 
-            <div class="receipt-card">
-                <div class="receipt-info">
-                    <h3>Whole Foods Market</h3>
-                    <div class="receipt-meta">
-                        <span>📅 2025-12-25</span>
-                        <span>🛒 8 items</span>
-                        <span>PLN 87.45</span>
-                    </div>
-                </div>
-                <button class="delete-btn">🗑️</button>
-            </div>
-        </div>
-    </main>
+    <div class="stats-row">
+      <div class="stat-group">
+        <p class="stat-label">Total Spent</p>
+        <p class="stat-value-small" id="totalSpent">PLN 0.00</p>
+      </div>
+      <div class="stat-group">
+        <p class="stat-label">Average Receipt</p>
+        <p class="stat-value-small" id="averageReceipt">PLN 0.00</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- JS WSTAWIA PARAGONY TUTAJ -->
+  <div class="receipts-list" id="receiptsList"></div>
+
+</main>
+
 
 </body>
 </html>

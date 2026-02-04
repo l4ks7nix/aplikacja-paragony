@@ -27,11 +27,8 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 document.addEventListener('DOMContentLoaded', () => {
-    // Pobieramy elementy na podstawie Twojego HTML
     const apiKeyInput = document.getElementById('apiKey');
     const saveButton = document.querySelector('.btn-primary');
-    const togglePasswordBtn = document.getElementById('togglePassword');
-
     // 1. Obsługa zapisu klucza
     saveButton.addEventListener('click', (event) => {
         // Zatrzymujemy domyślne przeładowanie formularza
@@ -62,9 +59,6 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     // - 2. ZAPISYWANIE KLUCZA -
-    saveButton.addEventListener('click', (event) => {
-        event.preventDefault(); // Zatrzymuje odświeżanie strony
-
         const keyValue = apiKeyInput.value.trim();
 
         if (keyValue === "") {
@@ -74,4 +68,98 @@ document.addEventListener('DOMContentLoaded', () => {
             alert("API Key saved!");
         }
     });
+// zoorganizowac listenery
+//zniemic pobieranie z klasy prim-bt na ID
+//zdeugować kod
+
+// ===============================
+// DANE PARAGONÓW
+// ===============================
+const receiptsData = [
+  {
+    storeName: "Biedronka",
+    date: "2025-12-23",
+    itemCount: 5,
+    total: 21,
+  },
+  {
+    storeName: "Lidl",
+    date: "2025-12-11",
+    itemCount: 5,
+    total: 12,
+  },
+  {
+    storeName: "Auchan",
+    date: "2025-12-12",
+    itemCount: 5,
+    total: 67,
+  },
+  {
+    storeName: "Kaufland",
+    date: "2025-09-10",
+    itemCount: 100,
+    total: 1562.98,
+  },
+];
+
+// ===============================
+// ELEMENTY DOM
+// ===============================
+const receiptsList = document.getElementById("receiptsList");
+const totalSpentEl = document.getElementById("totalSpent");
+const averageReceiptEl = document.getElementById("averageReceipt");
+
+// ===============================
+// RENDER PARAGONÓW
+// ===============================
+function renderReceipts() {
+  receiptsList.innerHTML = "";
+
+  receiptsData.forEach((receipt, index) => {
+    const card = document.createElement("div");
+    card.className = "receipt-card";
+
+    card.innerHTML = `
+      <div class="receipt-info">
+        <h3>${receipt.storeName}</h3>
+        <div class="receipt-meta">
+          <span>📅 ${receipt.date}</span>
+          <span>🛒 ${receipt.itemCount} items</span>
+          <span>PLN ${receipt.total.toFixed(2)}</span>
+        </div>
+      </div>
+      <button class="delete-btn" data-index="${index}">🗑️</button>
+    `;
+
+    receiptsList.appendChild(card);
+  });
+
+  updateStats();
+}
+
+// ===============================
+// STATYSTYKI
+// ===============================
+function updateStats() {
+  const total = receiptsData.reduce((sum, r) => sum + r.total, 0);
+  const average = receiptsData.length ? total / receiptsData.length : 0;
+
+  totalSpentEl.textContent = `PLN ${total.toFixed(2)}`;
+  averageReceiptEl.textContent = `PLN ${average.toFixed(2)}`;
+}
+
+// ===============================
+// USUWANIE PARAGONU
+// ===============================
+receiptsList.addEventListener("click", (e) => {
+  if (e.target.classList.contains("delete-btn")) {
+    const index = e.target.dataset.index;
+    receiptsData.splice(index, 1);
+    renderReceipts();
+  }
 });
+
+// ===============================
+// START
+// ===============================
+renderReceipts();

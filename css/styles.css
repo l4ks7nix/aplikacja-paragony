@@ -363,3 +363,106 @@ main {
   color: #6b7280;
   font-size: 1rem;
 }
+
+    .receipt-container {
+            display: flex;
+            gap: 2rem;
+            margin-top: 2rem;
+            align-items: flex-start;
+        }
+
+        .image-preview-section {
+            flex: 1;
+            background-color: #f4f4f4;
+            border: 2px dashed #ccc;
+            border-radius: 8px;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+        }
+
+        .data-entry-section {
+            flex: 1.5;
+        }
+
+        .receipt-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 1rem;
+        }
+
+        .receipt-table th, .receipt-table td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+
+        .receipt-table th {
+            background-color: #f8f9fa;
+        }
+
+        .action-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-top: 2rem;
+        }
+
+        input[type="text"], input[type="number"] {
+            width: 100%;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+        .btn-add-item {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    width: 100%;
+    padding: 12px;
+    margin-top: 15px;
+    
+    background-color: transparent;
+    color: #1b7288;
+    font-weight: 600;
+    font-size: 0.95rem;
+    
+    border: 2px dashed #dcdde1;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.25s ease-in-out;
+}
+
+.btn-add-item:hover {
+    background-color: #f0fff4;
+    border-color: #3fc2e2;
+    color: #3fc2e2;
+    transform: translateY(-2px);
+}
+
+.btn-add-item span {
+    font-size: 1.4rem;
+    line-height: 0;
+    margin-bottom: 2px;
+}
+
+
+.receipt-table {
+    border-radius: 10px;
+    overflow: hidden; 
+    border: 1px solid #eee;
+}
+
+.receipt-table input {
+    border: 1px solid transparent;
+    padding: 6px;
+    border-radius: 4px;
+    transition: border 0.2s;
+}
+
+.receipt-table input:focus {
+    outline: none;
+    border-color: #3498db;
+    background-color: #fff;
+}
